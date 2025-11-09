@@ -33,7 +33,7 @@ const tags = frontmatter.tags;
 <BaseLayout pageTitle={frontmatter.title}>
   <p>
     Written by {frontmatter.author} on {
-      frontmatter.pubDate.toString().slice(0, 10)
+      frontmatter.pubDate.toLocaleDateString()
     }
   </p>
   <p><em>{frontmatter.description}</em></p>

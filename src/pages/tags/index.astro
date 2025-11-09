@@ -1,9 +1,10 @@
 ---
+import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 const pageTitle = "All Tags";
-const posts = Object.values(import.meta.glob("../posts/*.md", { eager: true }));
+const allPosts = await getCollection("blog");
 const tags = [
-  ...new Set(posts.flatMap((post: any) => post.frontmatter.tags).flat()),
+  ...new Set(allPosts.flatMap((post: any) => post.data.tags).flat()),
 ];
 ---
 
